@@ -125,12 +125,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo {
-  font-size: 32px;
-  margin: 0;
+  /* font-size: 32px; */
+  /* margin: 0;
   padding: 0;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: 2px;
+  letter-spacing: 2px; */
+  width: 5%;
 }
 
 #header .logo a {
@@ -417,7 +418,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("../img/SCA.gif") top center;
   background-size: cover;
   position: relative;
   padding: 0;
@@ -425,7 +426,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero:before {
   content: "";
-  background: rgba(13, 20, 26, 0.7);
+  /* background: rgba(13, 20, 26, 0.7); */
   position: absolute;
   bottom: 0;
   top: 0;
@@ -866,6 +867,10 @@ section {
 --------------------------------------------------------------*/
 .features .nav-tabs {
   border: 0;
+}
+
+.features .nav-tabs .nav-item {
+  border-radius: 25px;
 }
 
 .features .nav-link {
