@@ -776,7 +776,7 @@ section {
 }
 
 .about-boxes .card {
-  border-radius: 3px;
+  border-radius: 25px;
   border: 0;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
@@ -821,6 +821,10 @@ section {
 
 .about-boxes .card-text {
   color: #5e5e5e;
+}
+
+.about-boxes .card a {
+  text-align: center;
 }
 
 .about-boxes .card:hover .card-icon i {
@@ -1013,6 +1017,10 @@ section {
 
 .services .icon-box:hover h4 a {
   color: rgba(20, 99, 52, 1);
+}
+
+.services .card-text {
+  text-align: center;
 }
 
 /*--------------------------------------------------------------
