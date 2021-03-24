@@ -520,6 +520,13 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 24px;
     margin-bottom: 30px;
   }
+  
+}
+
+@media (max-width: 1024px){
+  #hero {
+    background-size: contain;
+  }
 }
 
 /*--------------------------------------------------------------
