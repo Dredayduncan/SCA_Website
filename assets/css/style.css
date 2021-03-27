@@ -632,10 +632,15 @@ section {
   font-size: 15px;
 }
 
+.about .content p{
+  text-align: justify;
+}
+
 .about .content h3 {
   font-weight: 700;
   font-size: 24px;
   color: #263d4d;
+  margin-top: 15%;
 }
 
 .about .content ul {
@@ -828,6 +833,7 @@ section {
 
 .about-boxes .card-text {
   color: #5e5e5e;
+  text-align: justify;
 }
 
 .about-boxes .card a {
@@ -960,6 +966,10 @@ section {
   margin-top: 30px;
 }
 
+.features .tab-content p, .features .tab-content li {
+  text-align: justify;
+}
+
 .features .tab-pane h3 {
   font-weight: 600;
   font-size: 26px;
@@ -1027,7 +1037,7 @@ section {
 }
 
 .services .card-text {
-  text-align: center;
+  text-align: justify;
 }
 
 /*--------------------------------------------------------------

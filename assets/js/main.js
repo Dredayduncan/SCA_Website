@@ -207,41 +207,17 @@
     aos_init();
   });
 
-  // View More Clicks 
-  $('#corporate .card-text').on('click', function(){
-
-    var tier1info = ["Initial discussions with client.", "Brainstorm with SCA team.", "Provide client with feedback and guidelines where necessary."]
-    var tier2info = ["Initial discussions with client.", "Brainstorm session with SCA team.", 
-    "Prepare Advisory presentation model and discuss with client.", "Feedback over Skype, Zoom, BlueJeans or client preferred medium."]
-
-    localStorage.setItem('name', "CORPORATE & FINANCIAL ADVISORY");
-    localStorage.setItem('tier1', "TIER 1 - GHS 250.00");
-    localStorage.setItem('tier2', 'TIER 2 - GHS 400.00');
-    localStorage.setItem('tier1info', JSON.stringify(tier1info));
-    localStorage.setItem('tier2info', JSON.stringify(tier2info));
-
+  // Links to Services From footer
+  $("#servLink1").on("click", function(){
+    $("#serv1").click();
   });
 
-  $('#strategy .card-text').on('click', function(){
-
-    var tier1info = ["Initial discussions and information gathering with client on specific aims and objectives.",
-     "Brainstorm with SCA team.", "Provide client with feedback, tools and roadmap to achieving objectives."]
-    var tier2info = ["Initial discussions and information gathering with client on specific aims and objectives.", 
-    "Prepare Corporate Strategy Presentation document to discuss with client.", "Feedback over Skype, Zoom, BlueJeans or client preferred medium."]
-
-    localStorage.setItem('name', "CORPORATE STRATEGY");
-    localStorage.setItem('tier1', "TIER 1 - GHS 250.00");
-    localStorage.setItem('tier2', 'TIER 2 - GHS 500.00');
-    localStorage.setItem('tier1info', JSON.stringify(tier1info));
-    localStorage.setItem('tier2info', JSON.stringify(tier2info));
+  $("#servLink2").on("click", function(){
+    $("#serv2").click();
   });
 
-  $('#project .card-text').on('click', function(){
-    var tier1info = "Our Project Management pricing is fully aware of the varied nature of client requests and the demands that come along with it. Thus, we agree based on the client budget and required project management deliverables.";
-   
-   localStorage.setItem('name', "PROJECT MANAGEMENT");
-   localStorage.setItem('tier1', "TIER 1: 7-10% X PROJECT COST");
-   localStorage.setItem('tier1info', tier1info);
+  $("#servLink3").on("click", function(){
+    $("#serv3").click();
   });
 
 })(jQuery);
