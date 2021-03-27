@@ -462,8 +462,8 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Sign up here to get the latest news, updates and special offers delivered to your inbox.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <form id="newsletter" action="forms/contact.php" method="post">
+              <input type="email" name="newsEmail"><input type="submit" value="Subscribe">
             </form>
 
           </div>
@@ -491,26 +491,20 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- <script src= 
-    "https://smtpjs.com/v3/smtp.js"> 
-  </script> 
-  
-  <script type="text/javascript"> 
-    function sendEmail() { 
-      Email.send({ 
-        Host: "smtp.gmail.com", 
-        Username: "dredayduncan@gmail.com", 
-        Password: "kramphah", 
-        To: 'andrewpduncan2000@gmail.com', 
-        From: "dredayduncan@gmail.com", 
-        Subject: "Sending Email using javascript", 
-        Body: "Well that was easy!!", 
-      }) 
-        .then(function (message) { 
-          alert("mail sent successfully") 
-        }); 
-    } 
-  </script>  -->
+  <script>
+    $('#newsletter').submit(function(){
+      $.ajax({
+      type: "POST",
+      url: "forms/contact.php",
+      data: data,
+      timeout: 40000
+      }).done( function(){
+        alert('newsletter sent');
+      }).fail( function(data){
+        alert('failed');
+      });
+    });
+  </script>
 
 </body>
 
