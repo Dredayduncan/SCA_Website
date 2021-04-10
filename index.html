@@ -114,7 +114,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="assets/img/about-boxes-1.jpg" class="card-img-top" alt="...">
+              <img src="assets/img/Our Mission.jpg" class="card-img-top" alt="...">
               <div class="card-icon">
                 <i class="ri-brush-4-line"></i>
               </div>
@@ -131,7 +131,7 @@
           </div>
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="card">
-              <img src="assets/img/about-boxes-2.jpg" class="card-img-top" alt="...">
+              <img src="assets/img/Our Values.jpg" class="card-img-top" alt="...">
               <div class="card-icon">
                 <i class="ri-scales-3-fill"></i>
               </div>
@@ -162,7 +162,7 @@
           </div>
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="card">
-              <img src="assets/img/about-boxes-3.jpg" class="card-img-top" alt="...">
+              <img src="assets/img/Our Vision.jpg" class="card-img-top" alt="...">
               <div class="card-icon">
                 <i class="ri-eye-fill"></i>
               </div>
@@ -196,7 +196,7 @@
 
           <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="assets/img/about-boxes-1.jpg" class="card-img-top" alt="...">
+              <img src="assets/img/Sole Proprietorship.jpg" class="card-img-top" alt="...">
               <div class="card-icon">
                 <i class="ri-user-2-line"></i>
               </div>
@@ -211,7 +211,7 @@
           </div>
           <div class="col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="card">
-              <img src="assets/img/about-boxes-1.jpg" class="card-img-top" alt="...">
+              <img src="assets/img/SME.jpg" class="card-img-top" alt="...">
               <div class="card-icon">
                 <i class="ri-building-fill"></i>
               </div>
@@ -284,7 +284,7 @@
                 </p>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-1.png" alt="" class="img-fluid">
+                <img src="assets/img/Financial Advisory.jpg" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -307,7 +307,7 @@
                 <p >Once agreed, we develop a project plan taking into account all the necessary risks to deliver this strategy with the desired results.</p>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-2.png" alt="" class="img-fluid">
+                <img src="assets/img/Corporate Strategy.jpg" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -332,7 +332,7 @@
                 </p>
               </div>
               <div class="col-lg-6 order-1 order-lg-2 text-center">
-                <img src="assets/img/features-3.png" alt="" class="img-fluid">
+                <img src="assets/img/Project management.jpg" alt="" class="img-fluid">
               </div>
             </div>
           </div>
@@ -462,8 +462,8 @@
           <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <p>Sign up here to get the latest news, updates and special offers delivered to your inbox.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <form id="newsletter" action="forms/contact.php" method="post">
+              <input type="email" name="newsEmail"><input type="submit" value="Subscribe">
             </form>
 
           </div>
@@ -491,26 +491,20 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
-  <!-- <script src= 
-    "https://smtpjs.com/v3/smtp.js"> 
-  </script> 
-  
-  <script type="text/javascript"> 
-    function sendEmail() { 
-      Email.send({ 
-        Host: "smtp.gmail.com", 
-        Username: "dredayduncan@gmail.com", 
-        Password: "kramphah", 
-        To: 'andrewpduncan2000@gmail.com', 
-        From: "dredayduncan@gmail.com", 
-        Subject: "Sending Email using javascript", 
-        Body: "Well that was easy!!", 
-      }) 
-        .then(function (message) { 
-          alert("mail sent successfully") 
-        }); 
-    } 
-  </script>  -->
+  <script>
+    $('#newsletter').submit(function(){
+      $.ajax({
+      type: "POST",
+      url: "forms/contact.php",
+      data: data,
+      timeout: 40000
+      }).done( function(){
+        alert('newsletter sent');
+      }).fail( function(data){
+        alert('failed');
+      });
+    });
+  </script>
 
 </body>
 
