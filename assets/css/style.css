@@ -523,9 +523,17 @@ h1, h2, h3, h4, h5, h6 {
   
 }
 
+@media (max-width: 480px){
+  #hero {
+    height: 45vh;
+  }
+}
+
 @media (max-width: 1024px){
   #hero {
-    background-size: contain;
+    background: url("../img/SCAMobile.png") center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
   }
 }
 
@@ -761,6 +769,13 @@ section {
   }
 }
 
+@media (max-width: 1023px) {
+  .about .content {
+    width: 85%;
+    left: 8%;
+  }
+}
+
 /*--------------------------------------------------------------
 # About Boxes
 --------------------------------------------------------------*/
@@ -968,6 +983,8 @@ section {
 
 .features .tab-content p, .features .tab-content li {
   text-align: justify;
+  width: 90%;
+  margin-left: 4%;
 }
 
 .features .tab-pane h3 {
