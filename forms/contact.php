@@ -23,7 +23,7 @@
     'host' => "smtp.gmail.com",
     'username' => $receiving_email_address,
     'password' => '@Ydd3cp!jTgpoUb',
-    'port' => '587'
+    
   );
 
   if (isset($_POST['name'])){
@@ -47,6 +47,7 @@
     // Settings
     $mail->IsSMTP();
     $mail->CharSet = 'UTF-8';
+
     $mail->Host = 'smtp.gmail.com';
     
     $mail->SMTPDebug = 0;                     // enables SMTP debug information (for testing)
@@ -54,6 +55,7 @@
     $mail->Port = 587;                    // set the SMTP port for the GMAIL server
     $mail->Username = $receiving_email_address; // SMTP account username example
     $mail->Password = "@Ydd3cp!jTgpoUb";     
+
 
     $mail->setFrom($receiving_email_address);
     $mail->addAddress($receiving_email_address); 
