@@ -178,6 +178,7 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   font-weight: 600;
   padding: 0 3px;
+  text-decoration: none;
 }
 
 .nav-menu > ul > li > a:before {
@@ -417,16 +418,17 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  height: 100vh;
-  background: url("../img/SCA.gif") top center;
-  background-size: cover;
+  height: 100%;
   position: relative;
   padding: 0;
 }
 
+#hero .carousel-indicators {
+  margin-bottom: 8%;
+}
+
 #hero:before {
   content: "";
-  /* background: rgba(13, 20, 26, 0.7); */
   position: absolute;
   bottom: 0;
   top: 0;
@@ -504,7 +506,7 @@ h1, h2, h3, h4, h5, h6 {
   color: rgba(20, 99, 52, 1);
 }
 
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) {
   #hero {
     background-attachment: fixed;
   }
@@ -521,20 +523,15 @@ h1, h2, h3, h4, h5, h6 {
     margin-bottom: 30px;
   }
   
-}
-
-@media (max-width: 480px){
-  #hero {
-    height: 45vh;
-  }
-}
+} */
 
 @media (max-width: 1024px){
-  #hero {
-    background: url("../img/SCAMobile.png") center;
+  /* #hero {
+    background: url("../img/Webpage.png") center;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-  }
+    
+  } */
 }
 
 /*--------------------------------------------------------------
@@ -771,8 +768,8 @@ section {
 
 @media (max-width: 1023px) {
   .about .content {
-    width: 85%;
-    left: 8%;
+    width: 85% !important;
+    margin: 0 auto;
   }
 }
 

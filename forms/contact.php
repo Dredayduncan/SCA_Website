@@ -1,75 +1,98 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'info@spearcapitaladvisory.com';
+  require_once '../vendor/autoload.php';
+  use \Mailjet\Resources;
 
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
-
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-
-  // SMTP Credentials and info
-  $contact->smtp = array(
-    'host' => "smtp.gmail.com",
-    'username' => $receiving_email_address,
-    'password' => '@Ydd3cp!jTgpoUb',
-    
-  );
-
-  if (isset($_POST['name'])){
-    
-    $contact->to = $receiving_email_address;
-    $contact->from_name = $_POST['name'];
-    $contact->from_email = $_POST['email'];
-    $contact->subject = $_POST['subject'];
+  // $email_from = 'info@spearcapitaladvisory.com';
+  $email_from = 'dredayduncan@gmail.com';
   
-
-    $contact->add_message( $_POST['name'], 'From');
-    $contact->add_message( $_POST['email'], 'Email');
-    $contact->add_message( $_POST['message'], 'Message', 10);
-
-    echo $contact->send();
-  }
-
-  else {
-    $mail = new PHPMailer();
-
-    // Settings
-    $mail->IsSMTP();
-    $mail->CharSet = 'UTF-8';
-
-    $mail->Host = 'smtp.gmail.com';
-    
-    $mail->SMTPDebug = 0;                     // enables SMTP debug information (for testing)
-    $mail->SMTPAuth = true;                  // enable SMTP authentication
-    $mail->Port = 587;                    // set the SMTP port for the GMAIL server
-    $mail->Username = $receiving_email_address; // SMTP account username example
-    $mail->Password = "@Ydd3cp!jTgpoUb";     
-
-
-    $mail->setFrom($receiving_email_address);
-    $mail->addAddress($receiving_email_address); 
-
-    // Content
-    //$mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Newsletter Inclusion';
-    $mail->Body    = 'Kindly include me in the newsletter using '. $_POST['newsEmail'];
-    // $mail->AltBody = 'Kindly include me in the newsletter using '. $_POST['newsEmail'];
-
-    echo $mail->send();
-    header("Location: ../index.html#footer");
-
-  }
-
+  $apikey = '481d5e99d97941e735e31adcef9012bf';
+  $apisecret = '62c8fed91ceb9f9a9bda464ed920166e';
   
+  $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
+
+  /* Checking if the form has been submitted and if the email field is empty. If it is empty, it
+  redirects to the index page with a query string of newsletter=false. If it is not empty, it sets the
+  email to the visitor_email variable, sets the subject, body and headers. It then sends the email and
+  redirects to the index page with a query string of newsletter=true. */
+  if (isset($_POST['newsEmail'])){
+    
+   
+    /* Checking if the email field is empty. If it is, it redirects to the index page with a query
+    string of newsletter=false. */
+    if (empty($_POST['newsEmail'])){
+      header("location: ../index.php?newsletter=false");
+    }
+
+    $body = [
+      'Messages' => [
+          [
+              'From' => [
+                  'Email' => $email_from,
+                  'Name' => "Spear Capital Advisory"
+              ],
+              'To' => [
+                  [
+                      'Email' => $email_from,
+                      'Name' => "Spear Capital Advisory"
+                  ]
+              ],
+              'Subject' => 'Newsletter Inclusion',
+              'HTMLPart' => 'Kindly include me in the newsletter using <b>'. $_POST['newsEmail'] . '</b>'
+          ]
+      ]
+    ];
+
+    /* Sending the email. */
+    $response = $mj->post(Resources::$Email, ['body' => $body]);
+
+    /* Checking if the email was sent successfully. If it was, it prints OK. If it was not, it prints the
+    error message. */
+    if ($response->success()){
+      header("location: ../index.php?newsletter=true");
+    }
+    else{
+      header("location: ../index.php?newsletter=false");
+    }
+
+    
+  }
+  else{
+
+    $body = [
+      'Messages' => [
+          [
+              'From' => [
+                  'Email' => $email_from,
+                  'Name' => "Spear Capital Advisory"
+              ],
+              'To' => [
+                  [
+                      'Email' => $email_from,
+                      'Name' => "Spear Capital Advisory"
+                  ]
+              ],
+              'Subject' => $_POST['subject'],
+              'HTMLPart' => "You have received a new message from <b>".$_POST['name']." <i>(". $_POST['email'] .")</i> </b>.</h3>
+              <br /> ".$_POST['message']
+          ]
+      ]
+    ];
+
+    // All resources are located in the Resources class
+
+    /* Sending the email. */
+    $response = $mj->post(Resources::$Email, ['body' => $body]);
+
+    
+    /* Checking if the email was sent successfully. If it was, it prints OK. If it was not, it prints the
+    error message. */
+    if ($response->success()){
+      echo "OK";
+    }
+    else{
+      echo $response->getData();
+    }
+
+  }
 ?>
