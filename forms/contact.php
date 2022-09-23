@@ -6,8 +6,8 @@
   // $email_from = 'info@spearcapitaladvisory.com';
   $email_from = 'dredayduncan@gmail.com';
   
-  $apikey = '481d5e99d97941e735e31adcef9012bf';
-  $apisecret = '62c8fed91ceb9f9a9bda464ed920166e';
+  $apikey = 'api_key';
+  $apisecret = 'api_secret';
   
   $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
 
