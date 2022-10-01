@@ -3,11 +3,10 @@
   require_once '../vendor/autoload.php';
   use \Mailjet\Resources;
 
-  // $email_from = 'info@spearcapitaladvisory.com';
-  $email_from = 'dredayduncan@gmail.com';
+  $email_from = 'info@spearcapitaladvisory.com';
   
-  $apikey = 'api_key';
-  $apisecret = 'api_secret';
+  $apikey = 'apikey';
+  $apisecret = 'secretkey';
   
   $mj = new \Mailjet\Client($apikey, $apisecret,true,['version' => 'v3.1']);
 
